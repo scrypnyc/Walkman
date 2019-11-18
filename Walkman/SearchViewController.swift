@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SearchViewController.swift
 //  Walkman
 //
 //  Created by Alexander Skrypnyk on 18.11.2019.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class SearchViewController: UITableViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = .orange
     }
 
-
 }
+
 
