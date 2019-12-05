@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		673B99BA48F569C76712A43C /* libPods-Walkman.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 75FA0A64E22B226C9223116A /* libPods-Walkman.a */; };
 		E502D17B2382EA1A0093AB7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E502D17A2382EA1A0093AB7F /* AppDelegate.swift */; };
 		E502D17D2382EA1A0093AB7F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E502D17C2382EA1A0093AB7F /* SceneDelegate.swift */; };
 		E502D17F2382EA1A0093AB7F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E502D17E2382EA1A0093AB7F /* ViewController.swift */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		75FA0A64E22B226C9223116A /* libPods-Walkman.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Walkman.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0C5C9829A666C69A3891D7E /* Pods-Walkman.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walkman.debug.xcconfig"; path = "Target Support Files/Pods-Walkman/Pods-Walkman.debug.xcconfig"; sourceTree = "<group>"; };
 		E502D1772382EA1A0093AB7F /* Walkman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Walkman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E502D17A2382EA1A0093AB7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E502D17C2382EA1A0093AB7F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +31,7 @@
 		E502D1882382EA200093AB7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E502D18E2382F0050093AB7F /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E502D1902382F7D80093AB7F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		E7A8104A32E8287E7169927F /* Pods-Walkman.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walkman.release.xcconfig"; path = "Target Support Files/Pods-Walkman/Pods-Walkman.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +39,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				673B99BA48F569C76712A43C /* libPods-Walkman.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		401A914C9DFDA1D3ABC091B4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				75FA0A64E22B226C9223116A /* libPods-Walkman.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9E682F43FB9DF5797F200615 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B0C5C9829A666C69A3891D7E /* Pods-Walkman.debug.xcconfig */,
+				E7A8104A32E8287E7169927F /* Pods-Walkman.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E502D16E2382EA1A0093AB7F = {
 			isa = PBXGroup;
 			children = (
 				E502D1792382EA1A0093AB7F /* Walkman */,
 				E502D1782382EA1A0093AB7F /* Products */,
+				9E682F43FB9DF5797F200615 /* Pods */,
+				401A914C9DFDA1D3ABC091B4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,6 +105,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E502D18B2382EA200093AB7F /* Build configuration list for PBXNativeTarget "Walkman" */;
 			buildPhases = (
+				9549F50D14696C59A332B368 /* [CP] Check Pods Manifest.lock */,
 				E502D1732382EA1A0093AB7F /* Sources */,
 				E502D1742382EA1A0093AB7F /* Frameworks */,
 				E502D1752382EA1A0093AB7F /* Resources */,
@@ -138,6 +164,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9549F50D14696C59A332B368 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Walkman-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E502D1732382EA1A0093AB7F /* Sources */ = {
@@ -290,6 +341,7 @@
 		};
 		E502D18C2382EA200093AB7F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0C5C9829A666C69A3891D7E /* Pods-Walkman.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -308,6 +360,7 @@
 		};
 		E502D18D2382EA200093AB7F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7A8104A32E8287E7169927F /* Pods-Walkman.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

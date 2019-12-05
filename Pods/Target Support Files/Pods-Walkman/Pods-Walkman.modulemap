@@ -1,0 +1,6 @@
+module Pods_Walkman {
+  umbrella header "Pods-Walkman-umbrella.h"
+
+  export *
+  module * { export * }
+}
