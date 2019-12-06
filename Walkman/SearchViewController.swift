@@ -21,8 +21,7 @@ class SearchViewController: UITableViewController {
     
     let searchController = UISearchController(searchResultsController: nil)
     
-    let tracksArray = [TrackModel(trackName: "track name", artistName: "artist name"),
-                       TrackModel(trackName: "track name 2", artistName: "artist name 2")]
+    var tracksArray = [Track]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +61,14 @@ extension SearchViewController: UISearchBarDelegate {
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
             let url = "https://itunes.apple.com/search?term=\(searchText)"
+            let parameters = ["term":"\(searchText)"]
             
+            
+            //  почитать документацию об изменениях
+            AF.request(url, method: .get, parameters: parameters, encoder: URLEncoding.default, headers: nil)
+            
+            
+            // Use Alamofire
             AF.request(url).response { (dataResponse) in
                 if let error = dataResponse.error {
                     print("Error data: \(error.localizedDescription)")
@@ -73,16 +79,18 @@ extension SearchViewController: UISearchBarDelegate {
                 
                 let decoder = JSONDecoder()
                 do {
-                    
                     let objects = try decoder.decode(SearchModel.self, from: data)
                     print("objects: ", objects)
+                    self.tracksArray = objects.results
+                    self.tableView.reloadData()
+                    
                     
                 } catch let jsonError {
                     print("Error to decode JSON", jsonError)
                 }
                 
-                let someString = String(data: data, encoding: .utf8)
-                print(someString ?? "")
+//                let someString = String(data: data, encoding: .utf8)
+//                print(someString ?? "")
             }
         })
         
