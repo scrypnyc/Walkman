@@ -17,6 +17,8 @@ struct TrackModel {
 
 class SearchViewController: UITableViewController {
     
+    private var timer: Timer?
+    
     let searchController = UISearchController(searchResultsController: nil)
     
     let tracksArray = [TrackModel(trackName: "track name", artistName: "artist name"),
@@ -57,17 +59,33 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        let url = "https://itunes.apple.com/search?term=\(searchText)"
-        
-        AF.request(url).response { (dataResponse) in
-            if let error = dataResponse.error {
-                print("Error data: \(error.localizedDescription)")
-                return
-            }
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
+            let url = "https://itunes.apple.com/search?term=\(searchText)"
             
-            guard let data = dataResponse.data else { return }
-            let someString = String(data: data, encoding: .utf8)
-            print(someString ?? "")
-        }
+            AF.request(url).response { (dataResponse) in
+                if let error = dataResponse.error {
+                    print("Error data: \(error.localizedDescription)")
+                    return
+                }
+                
+                guard let data = dataResponse.data else { return }
+                
+                let decoder = JSONDecoder()
+                do {
+                    
+                    let objects = try decoder.decode(SearchModel.self, from: data)
+                    print("objects: ", objects)
+                    
+                } catch let jsonError {
+                    print("Error to decode JSON", jsonError)
+                }
+                
+                let someString = String(data: data, encoding: .utf8)
+                print(someString ?? "")
+            }
+        })
+        
+        
     }
 }
