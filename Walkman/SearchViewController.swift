@@ -17,6 +17,7 @@ struct TrackModel {
 
 class SearchViewController: UITableViewController {
     
+    var networkService = NetworkService()
     private var timer: Timer?
     
     let searchController = UISearchController(searchResultsController: nil)
@@ -60,33 +61,13 @@ extension SearchViewController: UISearchBarDelegate {
         
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
-            let url = "https://itunes.apple.com/search"
-            let parameters = ["term":"\(searchText)"]
-            
-            
-            //  Used Alamofire // почитать документацию об изменениях
-            AF.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseData { (dataResponse) in
-                if let error = dataResponse.error {
-                    print("Error data: \(error.localizedDescription)")
-                    return
-                }
-                
-                guard let data = dataResponse.data else { return }
-                
-                let decoder = JSONDecoder()
-                do {
-                    let objects = try decoder.decode(SearchModel.self, from: data)
-                    print("objects: ", objects)
-                    self.tracksArray = objects.results
-                    self.tableView.reloadData()
-                    
-                } catch let jsonError {
-                    print("Error to decode JSON", jsonError)
-                }
-                
-                //                let someString = String(data: data, encoding: .utf8)
-                //                print(someString ?? "")
+            // Утечка памяти, сильная ссылка networkService, повторение цикла без освобождения памяти
+            // решение [weak self] перед получаемым парамметром
+            self.networkService.fetchTracks(searchText: searchText) { [weak self] (searchResults) in
+                self?.tracksArray = searchResults?.results ?? []
+                self?.tableView.reloadData()
             }
+
         })
     }
 }
