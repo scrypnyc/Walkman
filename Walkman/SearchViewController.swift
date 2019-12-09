@@ -60,16 +60,12 @@ extension SearchViewController: UISearchBarDelegate {
         
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
-            let url = "https://itunes.apple.com/search?term=\(searchText)"
+            let url = "https://itunes.apple.com/search"
             let parameters = ["term":"\(searchText)"]
             
             
-            //  почитать документацию об изменениях
-            AF.request(url, method: .get, parameters: parameters, encoder: URLEncoding.default, headers: nil)
-            
-            
-            // Use Alamofire
-            AF.request(url).response { (dataResponse) in
+            //  Used Alamofire // почитать документацию об изменениях
+            AF.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseData { (dataResponse) in
                 if let error = dataResponse.error {
                     print("Error data: \(error.localizedDescription)")
                     return
@@ -84,16 +80,13 @@ extension SearchViewController: UISearchBarDelegate {
                     self.tracksArray = objects.results
                     self.tableView.reloadData()
                     
-                    
                 } catch let jsonError {
                     print("Error to decode JSON", jsonError)
                 }
                 
-//                let someString = String(data: data, encoding: .utf8)
-//                print(someString ?? "")
+                //                let someString = String(data: data, encoding: .utf8)
+                //                print(someString ?? "")
             }
         })
-        
-        
     }
 }
