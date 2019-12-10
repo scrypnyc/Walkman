@@ -17,6 +17,13 @@
 		E502D18F2382F0050093AB7F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E502D18E2382F0050093AB7F /* MainTabBarController.swift */; };
 		E502D1912382F7D80093AB7F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E502D1902382F7D80093AB7F /* SearchViewController.swift */; };
 		E51E91BD239A95F8000B5D86 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51E91BC239A95F8000B5D86 /* SearchModel.swift */; };
+		E52C23D8239FE6B1000C188D /* MusicPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52C23D1239FE6B1000C188D /* MusicPresenter.swift */; };
+		E52C23D9239FE6B1000C188D /* MusicWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52C23D2239FE6B1000C188D /* MusicWorker.swift */; };
+		E52C23DA239FE6B1000C188D /* MusicRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52C23D3239FE6B1000C188D /* MusicRouter.swift */; };
+		E52C23DB239FE6B1000C188D /* MusicModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52C23D4239FE6B1000C188D /* MusicModels.swift */; };
+		E52C23DC239FE6B1000C188D /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52C23D5239FE6B1000C188D /* MusicViewController.swift */; };
+		E52C23DD239FE6B1000C188D /* MusicInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52C23D6239FE6B1000C188D /* MusicInteractor.swift */; };
+		E52C23DE239FE6B1000C188D /* MusicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52C23D7239FE6B1000C188D /* MusicViewController.xib */; };
 		E53FAB10239E8D20009C94F0 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53FAB0F239E8D20009C94F0 /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +41,13 @@
 		E502D18E2382F0050093AB7F /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E502D1902382F7D80093AB7F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		E51E91BC239A95F8000B5D86 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
+		E52C23D1239FE6B1000C188D /* MusicPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPresenter.swift; sourceTree = "<group>"; };
+		E52C23D2239FE6B1000C188D /* MusicWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicWorker.swift; sourceTree = "<group>"; };
+		E52C23D3239FE6B1000C188D /* MusicRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRouter.swift; sourceTree = "<group>"; };
+		E52C23D4239FE6B1000C188D /* MusicModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicModels.swift; sourceTree = "<group>"; };
+		E52C23D5239FE6B1000C188D /* MusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewController.swift; sourceTree = "<group>"; };
+		E52C23D6239FE6B1000C188D /* MusicInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicInteractor.swift; sourceTree = "<group>"; };
+		E52C23D7239FE6B1000C188D /* MusicViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicViewController.xib; sourceTree = "<group>"; };
 		E53FAB0F239E8D20009C94F0 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		E7A8104A32E8287E7169927F /* Pods-Walkman.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walkman.release.xcconfig"; path = "Target Support Files/Pods-Walkman/Pods-Walkman.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,10 +104,11 @@
 			children = (
 				E502D17A2382EA1A0093AB7F /* AppDelegate.swift */,
 				E502D17C2382EA1A0093AB7F /* SceneDelegate.swift */,
+				E52C23DF239FE767000C188D /* Service Files */,
 				E502D18E2382F0050093AB7F /* MainTabBarController.swift */,
-				E502D17E2382EA1A0093AB7F /* ViewController.swift */,
+				E52C23D0239FE633000C188D /* Search */,
 				E502D1902382F7D80093AB7F /* SearchViewController.swift */,
-				E53FAB0F239E8D20009C94F0 /* NetworkService.swift */,
+				E502D17E2382EA1A0093AB7F /* ViewController.swift */,
 				E51E91BC239A95F8000B5D86 /* SearchModel.swift */,
 				E502D1802382EA1A0093AB7F /* Main.storyboard */,
 				E502D1832382EA200093AB7F /* Assets.xcassets */,
@@ -101,6 +116,28 @@
 				E502D1882382EA200093AB7F /* Info.plist */,
 			);
 			path = Walkman;
+			sourceTree = "<group>";
+		};
+		E52C23D0239FE633000C188D /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				E52C23D5239FE6B1000C188D /* MusicViewController.swift */,
+				E52C23D6239FE6B1000C188D /* MusicInteractor.swift */,
+				E52C23D1239FE6B1000C188D /* MusicPresenter.swift */,
+				E52C23D4239FE6B1000C188D /* MusicModels.swift */,
+				E52C23D2239FE6B1000C188D /* MusicWorker.swift */,
+				E52C23D3239FE6B1000C188D /* MusicRouter.swift */,
+				E52C23D7239FE6B1000C188D /* MusicViewController.xib */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		E52C23DF239FE767000C188D /* Service Files */ = {
+			isa = PBXGroup;
+			children = (
+				E53FAB0F239E8D20009C94F0 /* NetworkService.swift */,
+			);
+			path = "Service Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,6 +199,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E52C23DE239FE6B1000C188D /* MusicViewController.xib in Resources */,
 				E502D1872382EA200093AB7F /* LaunchScreen.storyboard in Resources */,
 				E502D1842382EA200093AB7F /* Assets.xcassets in Resources */,
 				E502D1822382EA1A0093AB7F /* Main.storyboard in Resources */,
@@ -200,9 +238,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E52C23DC239FE6B1000C188D /* MusicViewController.swift in Sources */,
+				E52C23D9239FE6B1000C188D /* MusicWorker.swift in Sources */,
+				E52C23D8239FE6B1000C188D /* MusicPresenter.swift in Sources */,
 				E502D1912382F7D80093AB7F /* SearchViewController.swift in Sources */,
 				E502D17F2382EA1A0093AB7F /* ViewController.swift in Sources */,
+				E52C23DA239FE6B1000C188D /* MusicRouter.swift in Sources */,
+				E52C23DD239FE6B1000C188D /* MusicInteractor.swift in Sources */,
 				E502D17B2382EA1A0093AB7F /* AppDelegate.swift in Sources */,
+				E52C23DB239FE6B1000C188D /* MusicModels.swift in Sources */,
 				E51E91BD239A95F8000B5D86 /* SearchModel.swift in Sources */,
 				E502D18F2382F0050093AB7F /* MainTabBarController.swift in Sources */,
 				E502D17D2382EA1A0093AB7F /* SceneDelegate.swift in Sources */,
