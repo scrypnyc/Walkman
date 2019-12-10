@@ -13,21 +13,13 @@ protocol SearchDisplayLogic: class {
 }
 
 class SearchViewController: UIViewController, SearchDisplayLogic {
-
-  var interactor: SearchBusinessLogic?
-  var router: (NSObjectProtocol & SearchRoutingLogic)?
-
-  // MARK: Object lifecycle
-  
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    setup()
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    setup()
-  }
+    
+    var interactor: SearchBusinessLogic?
+    var router: (NSObjectProtocol & SearchRoutingLogic)?
+    
+    @IBOutlet weak var table: UITableView!
+    
+    let searchController = UISearchController(searchResultsController: nil)
   
   // MARK: Setup
   
@@ -51,10 +43,38 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    setubSearchBar()
   }
+    
+    private func setubSearchBar() {
+        navigationItem.searchController = searchController
+        searchController.searchBar.delegate = self
+    }
   
   func displayData(viewModel: Search.Model.ViewModel.ViewModelData) {
 
   }
   
+}
+
+    // MARK: UITableViewDelegate, UITableViewDataSource
+        
+extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = "IndexPath: \(indexPath)"
+        return cell
+    }
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+    }
 }
