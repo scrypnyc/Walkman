@@ -1,5 +1,5 @@
 //
-//  MusicModels.swift
+//  SearchModels.swift
 //  Walkman
 //
 //  Created by Alexander Skrypnyk on 10.12.2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum Music {
+enum Search {
    
   enum Model {
     struct Request {

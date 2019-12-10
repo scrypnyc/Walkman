@@ -1,5 +1,5 @@
 //
-//  MusicRouter.swift
+//  SearchRouter.swift
 //  Walkman
 //
 //  Created by Alexander Skrypnyk on 10.12.2019.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol MusicRoutingLogic {
+protocol SearchRoutingLogic {
 
 }
 
-class MusicRouter: NSObject, MusicRoutingLogic {
+class SearchRouter: NSObject, SearchRoutingLogic {
 
-  weak var viewController: MusicViewController?
+  weak var viewController: SearchViewController?
   
   // MARK: Routing
   

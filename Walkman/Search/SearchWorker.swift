@@ -1,5 +1,5 @@
 //
-//  MusicWorker.swift
+//  SearchWorker.swift
 //  Walkman
 //
 //  Created by Alexander Skrypnyk on 10.12.2019.
@@ -8,6 +8,6 @@
 
 import UIKit
 
-class MusicService {
+class SearchService {
 
 }
