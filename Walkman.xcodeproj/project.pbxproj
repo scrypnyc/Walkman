@@ -25,6 +25,7 @@
 		E52C23EC239FEB3A000C188D /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52C23E5239FEB3A000C188D /* SearchInteractor.swift */; };
 		E52C23EF239FEE79000C188D /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E52C23EE239FEE79000C188D /* SearchViewController.storyboard */; };
 		E53FAB10239E8D20009C94F0 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53FAB0F239E8D20009C94F0 /* NetworkService.swift */; };
+		E5E07ED923A11A9D00BDB384 /* UIViewController + Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E07ED823A11A9D00BDB384 /* UIViewController + Storyboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		E52C23E5239FEB3A000C188D /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
 		E52C23EE239FEE79000C188D /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
 		E53FAB0F239E8D20009C94F0 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		E5E07ED823A11A9D00BDB384 /* UIViewController + Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Storyboard.swift"; sourceTree = "<group>"; };
 		E7A8104A32E8287E7169927F /* Pods-Walkman.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Walkman.release.xcconfig"; path = "Target Support Files/Pods-Walkman/Pods-Walkman.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +110,7 @@
 				E502D18E2382F0050093AB7F /* MainTabBarController.swift */,
 				E52C23D0239FE633000C188D /* Search */,
 				E502D1902382F7D80093AB7F /* SearchLibraryViewController.swift */,
+				E5E07EDA23A11AD800BDB384 /* Helpers */,
 				E502D17E2382EA1A0093AB7F /* ViewController.swift */,
 				E51E91BC239A95F8000B5D86 /* SearchModel.swift */,
 				E502D1802382EA1A0093AB7F /* Main.storyboard */,
@@ -138,6 +141,14 @@
 				E53FAB0F239E8D20009C94F0 /* NetworkService.swift */,
 			);
 			path = "Service Files";
+			sourceTree = "<group>";
+		};
+		E5E07EDA23A11AD800BDB384 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E5E07ED823A11A9D00BDB384 /* UIViewController + Storyboard.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E502D1912382F7D80093AB7F /* SearchLibraryViewController.swift in Sources */,
+				E5E07ED923A11A9D00BDB384 /* UIViewController + Storyboard.swift in Sources */,
 				E502D17F2382EA1A0093AB7F /* ViewController.swift in Sources */,
 				E502D17B2382EA1A0093AB7F /* AppDelegate.swift in Sources */,
 				E52C23EC239FEB3A000C188D /* SearchInteractor.swift in Sources */,
