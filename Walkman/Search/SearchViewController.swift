@@ -35,15 +35,14 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     router.viewController     = viewController
   }
   
-  // MARK: Routing
-  
-
   
   // MARK: View lifecycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    setup()
     
+    setupTableView()
     setubSearchBar()
   }
     
@@ -51,8 +50,20 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
         navigationItem.searchController = searchController
         searchController.searchBar.delegate = self
     }
+    
+    private func setupTableView() {
+        
+        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    }
   
   func displayData(viewModel: Search.Model.ViewModel.ViewModelData) {
+    
+    switch viewModel {
+    case .some:
+        print("viewController .some")
+    case .displayTracks:
+        print("viewController .displayTracks")
+    }
 
   }
   
@@ -76,5 +87,6 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print(searchText)
+        interactor?.makeRequest(request: Search.Model.Request.RequestType.getTracks)
     }
 }
