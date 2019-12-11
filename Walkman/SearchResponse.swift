@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct SearchModel: Decodable {
+struct SearchResponse: Decodable {
     var resultCount: Int
     var results: [Track]
 }

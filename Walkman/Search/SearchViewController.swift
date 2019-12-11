@@ -38,13 +38,13 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
   
   // MARK: View lifecycle
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    setup()
-    
-    setupTableView()
-    setubSearchBar()
-  }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setup()
+        
+        setupTableView()
+        setubSearchBar()
+    }
     
     private func setubSearchBar() {
         navigationItem.searchController = searchController
@@ -55,18 +55,16 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
         
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
-  
-  func displayData(viewModel: Search.Model.ViewModel.ViewModelData) {
     
-    switch viewModel {
-    case .some:
-        print("viewController .some")
-    case .displayTracks:
-        print("viewController .displayTracks")
+    func displayData(viewModel: Search.Model.ViewModel.ViewModelData) {
+        
+        switch viewModel {
+        case .some:
+            print("viewController .some")
+        case .displayTracks:
+            print("viewController .displayTracks")
+        }
     }
-
-  }
-  
 }
 
     // MARK: UITableViewDelegate, UITableViewDataSource
@@ -87,6 +85,6 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print(searchText)
-        interactor?.makeRequest(request: Search.Model.Request.RequestType.getTracks)
+        interactor?.makeRequest(request: Search.Model.Request.RequestType.getTracks(searchTerm: searchText))
     }
 }
