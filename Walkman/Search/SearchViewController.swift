@@ -20,6 +20,7 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     @IBOutlet weak var table: UITableView!
     
     let searchController = UISearchController(searchResultsController: nil)
+    private var searchViewModel = SearchViewModel.init(cells: [])
   
   // MARK: Setup
   
@@ -43,11 +44,12 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
         setup()
         
         setupTableView()
-        setubSearchBar()
+        setupSearchBar()
     }
     
-    private func setubSearchBar() {
+    private func setupSearchBar() {
         navigationItem.searchController = searchController
+        searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.delegate = self
     }
     
@@ -61,8 +63,10 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
         switch viewModel {
         case .some:
             print("viewController .some")
-        case .displayTracks:
+        case .displayTracks(let searchViewModel):
             print("viewController .displayTracks")
+            self.searchViewModel = searchViewModel
+            table.reloadData()
         }
     }
 }
@@ -71,12 +75,16 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
         
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return searchViewModel.cells.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "IndexPath: \(indexPath)"
+        
+        let cellViewModel = searchViewModel.cells[indexPath.row]
+        cell.textLabel?.text = "\(cellViewModel.trackName)\n\(cellViewModel.artistName)"
+        cell.textLabel?.numberOfLines = 2
+        cell.imageView?.image = #imageLiteral(resourceName: "MGMT_Cover_Art")
         return cell
     }
 }

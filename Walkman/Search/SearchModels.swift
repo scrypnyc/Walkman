@@ -26,8 +26,20 @@ enum Search {
         struct ViewModel {
             enum ViewModelData {
                 case some
-                case displayTracks
+                case displayTracks(searchViewModel: SearchViewModel)
             }
         }
     }
+}
+
+
+struct SearchViewModel {
+    struct Cell {
+        var iconUrlString: String?
+        var trackName: String
+        var collectionName: String
+        var artistName: String
+    }
+    
+    let cells: [Cell]
 }
