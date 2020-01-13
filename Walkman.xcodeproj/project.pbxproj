@@ -108,13 +108,12 @@
 		E502D1792382EA1A0093AB7F /* Walkman */ = {
 			isa = PBXGroup;
 			children = (
-				E52C23DF239FE767000C188D /* Service Files */,
 				E502D17A2382EA1A0093AB7F /* AppDelegate.swift */,
 				E502D17C2382EA1A0093AB7F /* SceneDelegate.swift */,
 				E502D18E2382F0050093AB7F /* MainTabBarController.swift */,
+				E52C23DF239FE767000C188D /* Service Files */,
 				E52C23D0239FE633000C188D /* Search */,
 				E502D1902382F7D80093AB7F /* SearchLibraryViewController.swift */,
-				E51E91BC239A95F8000B5D86 /* SearchResponse.swift */,
 				E502D17E2382EA1A0093AB7F /* ViewController.swift */,
 				E5E07EDA23A11AD800BDB384 /* Helpers */,
 				E502D1802382EA1A0093AB7F /* Main.storyboard */,
@@ -143,6 +142,7 @@
 		E52C23DF239FE767000C188D /* Service Files */ = {
 			isa = PBXGroup;
 			children = (
+				E58D87DC23CCB61B00DDDBC7 /* Models */,
 				E53FAB0F239E8D20009C94F0 /* NetworkService.swift */,
 			);
 			path = "Service Files";
@@ -155,6 +155,15 @@
 				E58D87DA23CCAA2E00DDDBC7 /* TrackCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		E58D87DC23CCB61B00DDDBC7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E51E91BC239A95F8000B5D86 /* SearchResponse.swift */,
+			);
+			name = Models;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		E5E07EDA23A11AD800BDB384 /* Helpers */ = {

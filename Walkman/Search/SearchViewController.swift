@@ -87,9 +87,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cellViewModel = searchViewModel.cells[indexPath.row]
         cell.trackImageView.backgroundColor = .orange
-//        cell.textLabel?.text = "\(cellViewModel.trackName)\n\(cellViewModel.artistName)"
-//        cell.textLabel?.numberOfLines = 2
-//        cell.imageView?.image = #imageLiteral(resourceName: "cover")
+        cell.set(viewModel: cellViewModel)
+        
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
